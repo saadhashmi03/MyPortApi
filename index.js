@@ -6,6 +6,8 @@ const { connectDB } = require("./connection");
 const routes = require("./routes/routes");
 const cookieParser = require("cookie-parser");
 
+
+
 require("dotenv").config();
 
 // connection to db
@@ -14,8 +16,7 @@ connectDB();
 // allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://my-port-frontend.vercel.app",
-  "https://my-port-frontend-8ozpswg1n-saadhashmi03s-projects.vercel.app"
+  process.env.Client_URL,
 ];
 
 // CORS options
@@ -29,6 +30,7 @@ const corsOptions = {
   },
   credentials: true
 };
+
 
 // middlewares
 app.use(cors(corsOptions));

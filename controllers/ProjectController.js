@@ -46,13 +46,16 @@ exports.removeProject = async (req, res) => {
   const { id } = req.params;
   try {
     const project = await Project.findByIdAndDelete(id);
-    if (!project)
+    if (!project) {
       return res
         .status(404)
-        .json({ success: false, msg: "project not found " });
-    return res.status(200).json({ success: true, msg: "project deleted " });
+        .json({ success: false, msg: "Project not found" });
+    }
+    return res.status(200).json({ success: true, msg: "Project deleted" });
   } catch (error) {
-    return res.status(500).json({ success: false, msg: `Failed to Delete` });
+    return res
+      .status(500)
+      .json({ success: false, msg: `Failed to delete: ${error.message}` });
   }
 };
 
