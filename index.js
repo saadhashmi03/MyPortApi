@@ -16,7 +16,8 @@ connectDB();
 // allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  process.env.Client_URL,
+  "https://saadhashmi-portfolio.vercel.app/",
+  "https://my-port-frontend-1p5mxfk84-saadhashmi03s-projects.vercel.app/"
 ];
 
 // CORS options
