@@ -15,13 +15,14 @@ connectDB();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://saadhashmi-portfolio.vercel.app",
-  "https://my-port-frontend-1p5mxfk84-saadhashmi03s-projects.vercel.app"
+  "my-port-frontend-iqbf4hh6h-saadhashmi03s-projects.vercel.app"
 ];
 
 // CORS options
 const corsOptions = {
   origin: function (origin, callback) {
-    console.log("Origin:", origin); // Log the origin of the request
+    console.log("Request Origin:", origin); // Log the origin of the request
+    console.log("Allowed Origins:", allowedOrigins); // Log the allowed origins list
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
